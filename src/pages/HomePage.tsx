@@ -61,7 +61,7 @@ function HomePage() {
         </Box>
 
         <Box sx={{ mb: 2, marginBottom: "40px" }}>
-          <Link to="/" style={{ textDecoration: "none" }}>
+          <Link to="/main" style={{ textDecoration: "none" }}>
             <Button variant="contained" color="primary">
               Explorar juegos
             </Button>

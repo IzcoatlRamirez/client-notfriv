@@ -6,7 +6,7 @@ function TopBar() {
   
 
   const goToHome = () =>{
-      navigate('/home');
+      navigate('/');
   };
 
   return (
