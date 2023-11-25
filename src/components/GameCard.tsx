@@ -1,40 +1,79 @@
-import { Button, Paper, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Typography,
+  Dialog,
+  DialogContent,
+} from "@mui/material";
+import { useState } from "react";
+import { GameCardProps } from "../interfaces/Game";
+import GameDetails from "./GameDetails";
+import WidgetsIcon from '@mui/icons-material/Widgets';
 
-interface GameCardProps {
-  gameName: string;
-  imageUrl: string;
-  gameUrl: string;
-}
-
-function GameCard({ gameName, imageUrl, gameUrl }: GameCardProps) {
+function GameCard({
+  id,
+  nombre,
+  autor,
+  descripcion,
+  genero,
+  link,
+  imageUrl,
+}: GameCardProps) {
   const gotoGame = () => {
-    window.open(gameUrl, "_blank");
+    window.open(link, "_blank");
+  };
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = async () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
   };
 
   return (
-    <Button
-      onClick={gotoGame}
-      component={Paper}
-      sx={{
-        minWidth:200,
-        maxHeight:200,
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        minWidth: 200,
+        maxHeight: 200,
+        maxWidth: 200,
+        minHeight: 200,
         backgroundImage: `url(${imageUrl})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
-        display: "flex",
-        flexDirection: "column",
         justifyContent: "flex-end",
         color: "white",
-        mt:5,
-        mr:10,
-        "&:hover": {
-          justifyContent: "center", // Cambiamos la alineación al centro en hover
-          cursor: "pointer", // Cambiamos el cursor para indicar que es interactivo
-        }
+        marginTop: 30,
+        marginRight: 75,
       }}
     >
-      <Typography variant="h6">{gameName}</Typography>
-    </Button>
+      <Button onClick={gotoGame}>
+        <Typography variant="h6" sx={{ color: "white" }}>
+          {nombre}
+        </Typography>
+      </Button>
+      <Box sx={{ mt: 1}}>
+        <Button onClick={handleOpen}>
+          <WidgetsIcon sx={{color:'white'}}/>
+        </Button>
+      </Box>
+    
+      <Dialog open={open} onClose={handleClose}>
+        <DialogContent>
+          <GameDetails
+            id={id}
+            nombre={nombre}
+            autor={autor}
+            genero={genero}
+            descripcion={descripcion}
+            link={link}
+          />
+        </DialogContent>
+      </Dialog>
+    </div>
   );
 }
 

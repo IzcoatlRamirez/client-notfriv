@@ -12,6 +12,7 @@ function CategorySelector() {
       setCategory(event.target.value as string);
     };
   
+    
     return (
       <Paper sx={{ minWidth:250}}>
         <FormControl fullWidth >
