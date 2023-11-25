@@ -48,7 +48,7 @@ function MainPage() {
     ));
   };
 
-  const handlePageChange = (event: unknown, value: number) => {
+  const handlePageChange = (_event: unknown, value: number) => {
     setCurrentPage(value);
   };
 
