@@ -2,6 +2,10 @@ import TopBar from "../components/TopBar";
 import { Box, Paper, Button, Typography } from "@mui/material";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import fondo1 from "../assets/fondo1.png"
+import fondo2 from "../assets/fondo2.jpg"
+import fondo3 from "../assets/fondo3.jpg"
+import fondo4 from "../assets/fondo4.png"
 
 function HomePage() {
   const [activeStep, setActiveStep] = useState(0);
@@ -10,10 +14,7 @@ function HomePage() {
     setActiveStep(step);
   };
   const images = [
-    "src/assets/fondo1.png",
-    "src/assets/fondo2.jpg",
-    "src/assets/fondo3.jpg",
-    "src/assets/fondo4.png",
+    fondo1,fondo2,fondo3,fondo4
   ];
   useEffect(() => {
     const interval = setInterval(() => {
