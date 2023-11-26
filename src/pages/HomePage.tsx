@@ -2,28 +2,88 @@ import TopBar from "../components/TopBar";
 import { Box, Paper, Button, Typography } from "@mui/material";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import fondo1 from "../assets/fondo1.png"
-import fondo2 from "../assets/fondo2.jpg"
-import fondo3 from "../assets/fondo3.jpg"
-import fondo4 from "../assets/fondo4.png"
+
+//images
+import fondo1 from "../assets/fondo1.png";
+import fondo2 from "../assets/fondo2.jpg";
+import fondo3 from "../assets/fondo3.jpg";
+import fondo4 from "../assets/fondo4.png";
+//juego de la semana 1
+
+import crazytaxi from "../assets/CrazyTaxi/CrazyTaxi.jpg";
+import crazytaxi1 from "../assets/CrazyTaxi/CrazyTaxi1.jpg";
+import crazytaxi2 from "../assets/CrazyTaxi/CrazyTaxi2.jpg";
+import crazytaxi3 from "../assets/CrazyTaxi/CrazyTaxi3.jpg";
+
+//juego de la semana 2
+import hod from "../assets/HOD/hod.jpg";
+import hod1 from "../assets/HOD/hod1.jpg";
+import hod2 from "../assets/HOD/hod2.jpg";
+import hod3 from "../assets/HOD/hod3.jpg";
+
+//juego de la semana 3
+import kof from "../assets/KOF/kof.jpg";
+import kof1 from "../assets/KOF/kof1.jpg";
+import kof2 from "../assets/KOF/kof2.jpg";
+import kof3 from "../assets/KOF/kof3.jpg";
+
+//juego de la semana 4
+import roblox from "../assets/Roblox/Roblox.jpg";
+import roblox1 from "../assets/Roblox/Roblox1.jpg";
+import roblox2 from "../assets/Roblox/Roblox2.jpg";
+import roblox3 from "../assets/Roblox/Roblox3.jpg";
 
 function HomePage() {
   const [activeStep, setActiveStep] = useState(0);
+  const [activeGame, setActiveGame] = useState(0);
 
   const handleStepChange = (step: number) => {
     setActiveStep(step);
   };
-  const images = [
-    fondo1,fondo2,fondo3,fondo4
+
+  // const handleGameChange = (game: number) => {
+  //   setActiveGame(game);
+  // };
+
+  const images = [fondo1, fondo2, fondo3, fondo4];
+
+  const games = [
+    {
+      title: "Juego de la semana_1",
+      images: [crazytaxi, crazytaxi1, crazytaxi2, crazytaxi3],
+      playUrl: "https://diep.io/",
+    },
+    {
+      title: "Juego de la semana_2",
+      images: [hod, hod1, hod2, hod3],
+      playUrl: "https://diep.io/",
+    },
+    {
+      title: "Juego de la semana_3",
+      images: [kof, kof1, kof2, kof3],
+      playUrl: "https://diep.io/",
+    },
+    {
+      title: "Juego de la semana_4",
+      images: [roblox, roblox1, roblox2, roblox3],
+      playUrl: "https://diep.io/",
+    },
   ];
+
   useEffect(() => {
     const interval = setInterval(() => {
-      // Cambiar a la siguiente imagen
       setActiveStep((prevStep) => (prevStep + 1) % images.length);
-    }, 4000); // Cambiar cada 4 segundos
+    }, 4000);
 
-    return () => clearInterval(interval); // Limpiar el intervalo al desmontar el componente
-  }, [images.length]);
+    const gameInterval = setInterval(() => {
+      setActiveGame((prevGame) => (prevGame + 1) % games.length);
+    }, 4000);
+
+    return () => {
+      clearInterval(interval);
+      clearInterval(gameInterval);
+    };
+  }, [images.length, games.length]);
 
   return (
     <>
@@ -55,7 +115,7 @@ function HomePage() {
             marginTop: "20px",
           }}
         >
-          <Typography variant="h4">
+          <Typography variant="h4" style={{ color: "white" }}>
             Disfruta jugando nuestros juegos de shooter, online, peleas y demás.
           </Typography>
         </Box>
@@ -87,6 +147,58 @@ function HomePage() {
               {index + 1}
             </Button>
           ))}
+        </Box>
+
+        {/* Sección de "Juegos de la Semana" */}
+        <Box sx={{ mt: 4, textAlign: "center" }}>
+          <Typography variant="h5" sx={{ mb: 2, color: "white" }}>
+            Juegos de la Semana
+          </Typography>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              flexWrap: "wrap",
+              gap: "32px",
+            }}
+          >
+            {games.map((game, index) => (
+              <Paper
+                key={index}
+                sx={{
+                  width: "200px",
+                  padding: 2,
+                  textAlign: "center",
+                  marginBottom: "32px",
+                  backgroundColor: "#001F3F",
+                  borderRadius: "8px",
+                  color: "white",
+                }}
+              >
+                <img
+                  src={game.images[activeGame]}
+                  alt={`Imagen ${activeGame + 1}`}
+                  style={{
+                    width: "100%",
+                    height: "150px",
+                    objectFit: "cover",
+                    borderRadius: "8px",
+                  }}
+                />
+                <Typography variant="subtitle1">{game.title}</Typography>
+                {/* Botón "Play" */}
+                <Button
+                  variant="contained"
+                  color="primary"
+                  href={game.playUrl}
+                  target="_blank"
+                  sx={{ marginTop: "8px" }}
+                >
+                  Play
+                </Button>
+              </Paper>
+            ))}
+          </Box>
         </Box>
       </Box>
     </>
