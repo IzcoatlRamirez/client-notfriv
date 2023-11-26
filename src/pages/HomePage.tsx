@@ -31,6 +31,7 @@ function HomePage() {
         "src/assets/CrazyTaxi/CrazyTaxi2.jpg",
         "src/assets/CrazyTaxi/CrazyTaxi3.jpg",
       ],
+      playUrl: "https://diep.io/",
     },
     {
       title: "Juego de la semana_2",
@@ -40,6 +41,7 @@ function HomePage() {
         "src/assets/HOD/hod2.jpg",
         "src/assets/HOD/hod3.jpg",
       ],
+      playUrl: "https://diep.io/",
     },
     {
       title: "Juego de la semana_3",
@@ -49,6 +51,7 @@ function HomePage() {
         "src/assets/KOF/kof2.jpg",
         "src/assets/KOF/kof3.jpg",
       ],
+      playUrl: "https://diep.io/",
     },
     {
       title: "Juego de la semana_4",
@@ -58,6 +61,7 @@ function HomePage() {
         "src/assets/Roblox/Roblox2.jpg",
         "src/assets/Roblox/Roblox3.jpg",
       ],
+      playUrl: "https://diep.io/",
     },
   ];
 
@@ -132,17 +136,27 @@ function HomePage() {
                   padding: 2,
                   textAlign: 'center',
                   marginBottom: '32px',
-                  backgroundColor: '#001F3F', // Fondo azul galaxia
-                  borderRadius: '8px', // Bordes redondeados
-                  color: 'white', // Texto blanco
+                  backgroundColor: '#001F3F',
+                  borderRadius: '8px',
+                  color: 'white',
                 }}
               >
                 <img
-                  src={game.images[activeStep]}
-                  alt={`Imagen ${activeStep + 1}`}
+                  src={game.images[activeGame]}
+                  alt={`Imagen ${activeGame + 1}`}
                   style={{ width: '100%', height: '150px', objectFit: 'cover', borderRadius: '8px' }}
                 />
                 <Typography variant="subtitle1">{game.title}</Typography>
+                {/* Botón "Play" */}
+                <Button
+                  variant="contained"
+                  color="primary"
+                  href={game.playUrl}
+                  target="_blank"
+                  sx={{ marginTop: '8px' }}
+                >
+                  Play
+                </Button>
               </Paper>
             ))}
           </Box>
