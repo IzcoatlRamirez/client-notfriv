@@ -7,6 +7,9 @@ function TopBar() {
 // const goToHome =() =>{
 //     navigate('/home')
 // }
+  const goToHelp = () =>{
+      navigate('/help');
+};
 
   return (
     <>
@@ -14,7 +17,7 @@ function TopBar() {
         <Button sx={{ color: "white",fontSize:24, width:150}}>Home</Button>
         <Button sx={{ color: "white",fontSize:24,width:150}}>About</Button>
         <Button sx={{ color: "white",fontSize:24,width:150 }}>Service</Button>
-        <Button sx={{ color: "white" ,fontSize:24,width:150}}>Help</Button>
+        <Button sx={{ color: "white" ,fontSize:24,width:150}} onClick={goToHelp}>Help</Button>
       </Box>
     </>
   );
