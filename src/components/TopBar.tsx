@@ -9,13 +9,16 @@ function TopBar() {
       navigate('/');
   };
 
+  const goToHelp = () =>{
+    navigate('/help')
+  };
+
   return (
     <>
       <Box sx={{ display: "flex", flexDirection: "row",mt:5 }}>
         <Button sx={{ color: "white",fontSize:24, width:150}} onClick={goToHome}>Home</Button>
         <Button sx={{ color: "white",fontSize:24,width:150}}>About</Button>
-        <Button sx={{ color: "white",fontSize:24,width:150 }}>Service</Button>
-        <Button sx={{ color: "white" ,fontSize:24,width:150}}>Help</Button>
+        <Button sx={{ color: "white" ,fontSize:24,width:150}} onClick={goToHelp}>Help</Button>
       </Box>
     </>
   );
