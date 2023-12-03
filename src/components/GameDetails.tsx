@@ -1,9 +1,8 @@
 import { pink } from "@mui/material/colors";
 import { Typography, Box, Divider,Grid,Button,Stack, Chip} from "@mui/material";
 import { Game} from "../interfaces/Game";
-import sliterio from "../assets/sliterio.jpg"
 
-function GameDetails({nombre,autor,descripcion,genero,link}: Game) {
+function GameDetails({nombre,autor,descripcion,genero,link,imagen}: Game) {
     const gotoGame = () => {
         window.open(link, "_blank");
       };
@@ -39,10 +38,10 @@ function GameDetails({nombre,autor,descripcion,genero,link}: Game) {
       </Stack>
     </Box>
     <Box sx={{ mt: 3, ml: 1, mb: 1 }}>
-        <Button sx={{color:pink['A400']}} onClick={gotoGame}>Play</Button>
+        <Button sx={{backgroundColor:pink['A400'],color:'white',ml:1}} onClick={gotoGame}>Play</Button>
       </Box>
   </Box>
-  <img src={sliterio} style={{ width: '200px', height: '350px', objectFit: 'cover' }}></img>
+  <img src={imagen} style={{ width: '200px', height: '350px', objectFit: 'cover' }}></img>
 
     </Box>
   )

@@ -1,24 +1,11 @@
-import {
-  Box,
-  Button,
-  Typography,
-  Dialog,
-  DialogContent,
-} from "@mui/material";
+import {Box,Button,Typography,Dialog,DialogContent,} from "@mui/material";
 import { useState } from "react";
 import { GameCardProps } from "../interfaces/Game";
 import GameDetails from "./GameDetails";
 import WidgetsIcon from '@mui/icons-material/Widgets';
 
-function GameCard({
-  id,
-  nombre,
-  autor,
-  descripcion,
-  genero,
-  link,
-  imageUrl,
-}: GameCardProps) {
+
+function GameCard({id,nombre,autor,descripcion,genero,link,imagen}: GameCardProps) {
   const gotoGame = () => {
     window.open(link, "_blank");
   };
@@ -41,13 +28,14 @@ function GameCard({
         maxHeight: 200,
         maxWidth: 200,
         minHeight: 200,
-        backgroundImage: `url(${imageUrl})`,
+        backgroundImage: `url(${imagen})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         justifyContent: "flex-end",
         color: "white",
         marginTop: 30,
         marginRight: 75,
+        borderRadius:5
       }}
     >
       <Button onClick={gotoGame}>
@@ -70,6 +58,7 @@ function GameCard({
             genero={genero}
             descripcion={descripcion}
             link={link}
+            imagen={imagen}
           />
         </DialogContent>
       </Dialog>

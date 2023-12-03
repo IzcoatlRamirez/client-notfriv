@@ -7,7 +7,6 @@ import TopBar from "../components/TopBar";
 // import SearchGame from "../components/SearchGame";
 // import BasicPagination from "../components/Pagination"
 import GameCard from "../components/GameCard";
-import sliterIo from "../assets/sliterio.jpg";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 
@@ -22,6 +21,7 @@ function MainPage() {
       try {
         const data = await getGames();
         setGames(data.data);
+        console.log(data.data);
       } catch (error) {
         console.error("Error al obtener datos:", error);
       }
@@ -43,7 +43,7 @@ function MainPage() {
         descripcion={game.descripcion}
         genero={game.genero}
         link={game.link}
-        imageUrl={sliterIo}
+        imagen={game.imagen}
       />
     ));
   };
@@ -55,7 +55,12 @@ function MainPage() {
   return (
     <>
       <Box
-        sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          backgroundColor: "#1B1B1C",
+        }}
       >
         <TopBar />
       </Box>
@@ -73,7 +78,7 @@ function MainPage() {
           display: "flex",
           flexDirection: "row",
           flexWrap: "wrap",
-          ml: 25,
+          ml: 32.5,
         }}
       >
         {renderizarJuegos()}
@@ -91,6 +96,9 @@ function MainPage() {
             count={Math.ceil(games.length / juegosPorPagina)}
             page={currentPage}
             onChange={handlePageChange}
+            shape="rounded"
+            size="large"
+            color="primary"
           />
         </Stack>
       </Box>

@@ -5,10 +5,11 @@ export interface Game {
     descripcion: string;
     genero: string[];
     link: string;
+    imagen: string;
   }
   
 export interface GameCardProps extends Game {
-  imageUrl:string
+  imagen:string
 } 
 
 export type GameCardDetails = Omit<Game,'link'>
