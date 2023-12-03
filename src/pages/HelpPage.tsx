@@ -43,8 +43,7 @@ function HelpPage() {
     
             <HelpForm />
             </Box>
-
-              <Footer />
+            <Footer />
         </>
       );
 
