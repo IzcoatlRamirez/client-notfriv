@@ -1,6 +1,7 @@
 import TopBar from "../components/TopBar";
 import { Box, Typography } from "@mui/material";
 import React from "react";
+import Footer from "../components/Footer";
 
 interface Collaborator {
   name: string;
@@ -128,6 +129,7 @@ function AboutPage() {
 
      
       </Box>
+      <Footer />
     </>
   );
 }

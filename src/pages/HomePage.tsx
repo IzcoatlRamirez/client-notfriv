@@ -2,6 +2,7 @@ import TopBar from "../components/TopBar";
 import { Box, Paper, Button, Typography } from "@mui/material";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Footer from "../components/Footer";
 
 //images
 import fondo1 from "../assets/fondo1.png";
@@ -201,6 +202,7 @@ function HomePage() {
           </Box>
         </Box>
       </Box>
+      <Footer />
     </>
   );
 }
