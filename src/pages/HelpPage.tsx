@@ -1,6 +1,7 @@
 import TopBar from "../components/TopBar";
 import { Box, Typography } from "@mui/material";
 import HelpForm from "../components/HelpForm";
+import Footer from "../components/Footer";
 
 
 function HelpPage() {
@@ -42,6 +43,7 @@ function HelpPage() {
     
             <HelpForm />
             </Box>
+            <Footer/>
         </>
       );
 

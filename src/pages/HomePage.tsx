@@ -1,4 +1,5 @@
 import TopBar from "../components/TopBar";
+import Footer from "../components/Footer";
 import { Box, Paper, Button, Typography } from "@mui/material";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -201,6 +202,7 @@ function HomePage() {
           </Box>
         </Box>
       </Box>
+      <Footer/>
     </>
   );
 }
